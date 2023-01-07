@@ -1,0 +1,33 @@
+.ico_menu {
+  float:left; 
+  margin-right:10px;
+}
+
+.ico_top {
+  width:48px; 
+  height:48px; 
+  border:0; 
+  background-repeat: no-repeat; 
+  background-size: contain;
+}
+
+.ico_whats_app {
+  background-image : url(../img/wa.svg);   
+}
+
+.ico_mail {
+  background-image : url(../img/mail.svg);
+}
+
+.ico_tel {
+  background-image: url(../img/tel.svg);
+}
+
+.ico_chat {
+  background-image: url(../img/chat.svg);
+}
+
+.rect {
+	fill-opacity: 0.3;
+	filter: drop-shadow( -5px -5px 2px white);
+}
