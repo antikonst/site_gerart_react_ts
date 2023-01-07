@@ -18,7 +18,6 @@ import ico_mont_roll from './Accordion/AccordionBody/ico_roll/mont.jpg'
 import ico_calc_roll from './Accordion/AccordionBody/ico_roll/calc.jpg'
 import { ModalBootstrap } from '../ModalBootstrap';
 import { Masonryjs } from '../MasonryJs';
-import { InputWidth } from '../InputWidth';
 import { useState } from 'react';
 import { CalcRollet } from '../CalcRollet';
 
