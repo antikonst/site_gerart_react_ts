@@ -6,9 +6,10 @@ interface Props {
   pr: number
   color: string
   onChange: (txt: string) => void
+  onKorob: (txt: number) => void
 }
 
-export const CanvasRollet: FC<Props> = ({ width, height, pr, color, onChange }) => {
+export const CanvasRollet: FC<Props> = ({ width, height, pr, color, onChange, onKorob }) => {
 
   const [napr, setNapr] = useState(0)
   const [max_w, setMaxw] = useState(2150)
@@ -70,70 +71,73 @@ export const CanvasRollet: FC<Props> = ({ width, height, pr, color, onChange }) 
     setMaxh(profilObj[pr][2])
     let maxkor = Object.keys(profilObj[pr][3]).find(item => height <= +item)
     setKor(maxkor && profilObj[pr][3][maxkor])
+    onKorob(maxkor && profilObj[pr][3][maxkor])
   }, [width, height, pr, color])
 
   const block = document.getElementById('roll_block') as HTMLElement
   const elem = block && block.getBoundingClientRect()
-  const w_block = elem && elem.width - 46
+  const w_block = elem && elem.width
   const koeff = width / w_block
   const wk = width / koeff
   const hk = height / koeff
   const canvasRef = useRef(null)
   const canvas = canvasRef.current
   const ctx: any = canvas && (canvas as unknown as HTMLCanvasElement).getContext('2d')
-  //const canvas = useRef(null).current
-  //const ctx: any = canvas && (canvas as unknown as HTMLCanvasElement).getContext('2d')
-
-  //const [ctx, setCtx] = useState<any>(canvas && (canvas as unknown as HTMLCanvasElement).getContext('2d'))
-  // useLayoutEffect(()=>{
-  //   setCtx(canvas && (canvas as unknown as HTMLCanvasElement).getContext('2d'))
-  // })
-  //const { ref, wid=1, hei=1 } = useResizeObserver<HTMLDivElement>();
-  //const canvasRef = useRef(null)
-  //const canvasRef = ref
-  //const canvas = canvasRef.current
-  //const ctx: any = canvas && (canvas as unknown as HTMLCanvasElement).getContext('2d')
 
   const canvasPryamo = () => {
-    if (ctx) {
-      ctx.fillStyle = color
-      ctx.fillRect(0, 0, wk, hk)
-      if (pr === 56) {
-        ctx.fillStyle = "white"
-        for (let i = 0; i <= Math.floor((width - 175) / 100); i++) {
-          for (let j = 0; j <= Math.ceil((height - kor)) / 56; j++) {
-            ctx.fillRect((napr + 20 + i * 100) / koeff, hk - 45 / koeff - (56 / koeff) * j, 80 / koeff, 30 / koeff)
-            ctx.strokeRect((napr + 20 + i * 100) / koeff, hk - 45 / koeff - (56 / koeff) * j, 80 / koeff, 30 / koeff)
+    if (width>300 && height>300) {
+      if (ctx) {
+        ctx.fillStyle = color
+        ctx.fillRect(0, 0, wk, hk)
+        if (pr === 56) {
+          ctx.fillStyle = "white"
+          for (let i = 0; i <= Math.floor((width - 175) / 100); i++) {
+            for (let j = 0; j <= Math.ceil((height - kor)) / 56; j++) {
+              ctx.fillRect((napr + 20 + i * 100) / koeff, hk - 45 / koeff - (56 / koeff) * j, 80 / koeff, 30 / koeff)
+              ctx.strokeRect((napr + 20 + i * 100) / koeff, hk - 45 / koeff - (56 / koeff) * j, 80 / koeff, 30 / koeff)
+            }
           }
         }
+        ctx.fillStyle = color
+        ctx.fillRect(0, 0, wk, kor / koeff)
+        ctx.fillRect(0, kor / koeff, napr / koeff, hk - kor / koeff)
+        ctx.fillRect(wk - napr / koeff, kor / koeff, napr / koeff, hk - kor / koeff)
+        ctx.strokeRect(0, 0, wk, kor / koeff)
+        ctx.strokeRect(0, kor / koeff, napr / koeff, hk - kor / koeff)
+        ctx.strokeRect(wk - napr / koeff, kor / koeff, napr / koeff, hk - kor / koeff)
+        for (let i = 0; i <= (height - kor) / pr; i++) {
+          ctx.beginPath();
+          ctx.moveTo(napr / koeff, hk - i * pr / koeff);
+          ctx.lineTo(wk - napr / koeff, hk - i * pr / koeff);
+          ctx.closePath();
+          ctx.stroke();
+        }
+        ctx.fillStyle = color
+      ctx.lineWidth = 1
+      ctx.beginPath();
+      ctx.moveTo(wk + 10, hk);
+      ctx.lineTo(wk + 10, 1);
+      ctx.lineTo(kor / koeff + wk + 10, 1);
+      ctx.lineTo(kor / koeff + wk + 10, kor / koeff / 4 * 3);
+      ctx.lineTo(kor / koeff - kor / koeff / 4 + wk + 10, kor / koeff);
+      ctx.lineTo(pr / 2.2 / koeff + wk + 10, kor / koeff);
+      ctx.lineTo(pr / 2.2 / koeff + wk + 10, hk);
+      ctx.lineTo(wk + 10, hk);
+      ctx.stroke();
+      ctx.fill();
+        setData((canvas as unknown as HTMLCanvasElement).toDataURL('image/png', 1.0))
+        onChange(data)
       }
-      ctx.fillStyle = color
-      ctx.fillRect(0, 0, wk, kor / koeff)
-      ctx.fillRect(0, kor / koeff, napr / koeff, hk - kor / koeff)
-      ctx.fillRect(wk - napr / koeff, kor / koeff, napr / koeff, hk - kor / koeff)
-      ctx.strokeRect(0, 0, wk, kor / koeff)
-      ctx.strokeRect(0, kor / koeff, napr / koeff, hk - kor / koeff)
-      ctx.strokeRect(wk - napr / koeff, kor / koeff, napr / koeff, hk - kor / koeff)
-      for (let i = 0; i <= (height - kor) / pr; i++) {
-        ctx.beginPath();
-        ctx.moveTo(napr / koeff, hk - i * pr / koeff);
-        ctx.lineTo(wk - napr / koeff, hk - i * pr / koeff);
-        ctx.closePath();
-        ctx.stroke();
-      }
-      setData((canvas as unknown as HTMLCanvasElement).toDataURL('image/jpeg', 1.0))
-      onChange(data)
     }
   }
 
   useLayoutEffect(() => {
-    canvasPryamo()
-    console.log(width, height, pr, color, napr, kor, data)
+    setTimeout(()=>canvasPryamo(), 1000) 
   })
 
   return (
     <>
-      <canvas style={{ margin: 1, display:"none" }} ref={canvasRef} width={wk + 1} height={hk + 1} />
+      <canvas style={{ margin: 1, display:"none" }} ref={canvasRef} width={wk + kor/koeff + 11} height={hk + 1} />
     </>
   )
 }
