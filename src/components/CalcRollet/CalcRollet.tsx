@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button, Col, Form, OverlayTrigger, Popover, Row, Image } from "react-bootstrap"
+import { Button, Col, Form, OverlayTrigger, Popover, Row, Image, Offcanvas } from "react-bootstrap"
 import { CanvasRollet } from "../CanvasRollet"
 import { ColorRollet } from "../ColorRollet"
 import { ElemUprRollet } from "../ElemUprRollet"
@@ -19,6 +19,10 @@ export const CalcRollet = () => {
   const [dataCanvasPryamo, setDataCanvasPryamo] = useState('')
   const [korob, setKorob] = useState(137)
   const imgFromDataCanvasPryamo = <Image width={"100%"} src={dataCanvasPryamo} />
+  const [showrolleta, setShowrolleta] = useState(false);
+
+  const rolletaClose = () => setShowrolleta(false);
+  const rolletaShow = () => setShowrolleta(true);
 
   const colors: any = {
     'beliy': "#ffffff",
@@ -43,38 +47,36 @@ export const CalcRollet = () => {
         <ColorRollet onChange={(txt) => setColor(txt)} />
         <UpravlenieRollet onChange={(txt) => setUpravlenie(txt)} />
         <ElemUprRollet onChange={(txt) => setElemUpr(txt)} upravlenie={upravlenie} />
+        <Button variant="outline-secondary" onClick={rolletaShow} className="mt-1">
+          Эскиз роллеты
+        </Button>
 
-        <OverlayTrigger
-          trigger="click"
-          key="bottom"
-          placement="bottom"
-          overlay={
-            <Popover id={`popover-positioned-bottom`}>
-              <Popover.Body>
+        <Offcanvas show={showrolleta} onHide={rolletaClose}>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>Эскиз роллеты</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Row>
+              <Col xs="1" sm="1" >
+                <div className="vertical_text pb-5">
+                  {height}
+                </div>
+              </Col>
+              <Col>
                 <Row>
-                  <Col xs lg="1">
-                    <div className="vertical_text pb-5">
-                        {height}
-                    </div>
+                  <Col align="end">
+                    {width}
                   </Col>
-                  <Col>
-                    <Row>
-                      <Col align="end">
-                        {width}
-                      </Col>
-                      <Col align="end">
-                        {korob}
-                      </Col>
-                    </Row>
-                    {imgFromDataCanvasPryamo}
+                  <Col align="end">
+                    {korob}
                   </Col>
                 </Row>
-              </Popover.Body>
-            </Popover>
-          }
-        >
-          <Button variant="outline-secondary">Эскиз роллеты</Button>
-        </OverlayTrigger>
+                {imgFromDataCanvasPryamo}
+              </Col>
+            </Row>
+          </Offcanvas.Body>
+        </Offcanvas>
+
         <CanvasRollet
           width={width}
           height={height}
