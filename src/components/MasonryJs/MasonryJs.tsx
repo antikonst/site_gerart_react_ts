@@ -8,17 +8,13 @@ export const Masonryjs = () => {
   let rollimgmap = rollimg.map((item, index) =>
     <div key={+index} className="grid-item">
       <img onClick={(e: any) => {
-        const divimg = e.target.parentNode
-        //rollimg.splice(index,1)
-        //rollimg.splice(0,0,item)
-        //setMass(rollimgmap)
-        //ifmsnry(grid!)
-        divimg.classList.toggle('grid-item--width3')
+        e.target.parentNode.classList.toggle('grid-item--width3')
         ifmsnry(grid!)
       }}
         alt=''
         src={rollimg[+index]} />
-    </div>)
+    </div>
+  )
 
   const [grid, setGrid] = useState(document.querySelector('.grid'))
   const [mass, setMass] = useState(rollimgmap)

@@ -1,0 +1,29 @@
+.beliy {
+  background-color: white;
+  color: black;
+}
+
+.seriy {
+  background-color: rgb(128, 138, 134);
+  color: black;
+}
+
+.begeviy {
+  background-color: rgb(233, 203, 160);
+  color: black;
+}
+
+.serebristiy {
+  background-color: rgb(186, 197, 197);
+  color: black;
+}
+
+.korichneviy {
+  background-color: rgb(63, 35, 35);
+  color: white;
+}
+
+.bel_lg {
+  width: 100%;
+  /* color: black; */
+}

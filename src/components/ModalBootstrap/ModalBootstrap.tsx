@@ -1,21 +1,33 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './ModalBootstrap.css'
 
-export const ModalBootstrap:FC<any> = ({children, title, btn_txt}) => {
+interface Props {
+  children:any, 
+  title?:any, 
+  btn_txt:any, 
+  btn_styles?:any
+  closeModal?:any
+}
+
+export const ModalBootstrap:FC<Props> = ({children, title, btn_txt, btn_styles, closeModal}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+  if (show === true) {
+    if (closeModal === false) setShow(false)
+  }
+  
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="outline-secondary" className={btn_styles} onClick={handleShow}>
        {btn_txt}
       </Button>
 
-      <Modal show={show} onHide={handleClose} fullscreen={true}>
+      <Modal show={show} onHide={handleClose} fullscreen={true} >
         <Modal.Header closeButton  className='black' >
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>

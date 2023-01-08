@@ -16,6 +16,10 @@ import ico_prof_roll from './Accordion/AccordionBody/ico_roll/prof.jpg'
 import ico_upr_roll from './Accordion/AccordionBody/ico_roll/upr.jpg'
 import ico_mont_roll from './Accordion/AccordionBody/ico_roll/mont.jpg'
 import ico_calc_roll from './Accordion/AccordionBody/ico_roll/calc.jpg'
+import section_ico from './Accordion/AccordionBody/ico_vorota/section_ico.jpg'
+import rulon_ico from './Accordion/AccordionBody/ico_vorota/rulon_ico.jpg'
+import rasp_ico from './Accordion/AccordionBody/ico_vorota/rasp_ico.jpg'
+import otkat_ico from './Accordion/AccordionBody/ico_vorota/otkat_ico.jpg'
 import { ModalBootstrap } from '../ModalBootstrap';
 import { Masonryjs } from '../MasonryJs';
 import { useState } from 'react';
@@ -62,6 +66,22 @@ export const Body = () => {
     body={<><CalcRollet />
     </>}
   />
+  const section_vorota = <AccordionBody
+    head={<>{ico(section_ico)}<h6>Секционные ворота</h6></>}
+    body="Гаражные секционные ворота - наиболее удобный и практичный способ закрыть проём для въезда автомобиля или подъезда к дому. Они состоят из секций, которые перемещаются по плоскости стены, уходя в плоскость потолка. Эти ворота изготовлены из стальныл сэндвич-панелей с заполнением вспененным полиуретаном. Они предоставляют отличную защиту предотвращения несанкционированного доступа и обеспечивают безопасность для вашего дома. Они могут быть изготовлены с различными функциями, такими как автоматическое открывание и закрывание, сигнализация и т. д."
+  />
+  const rulon_vorota = <AccordionBody
+    head={<>{ico(rulon_ico)}<h6>Рулонные ворота</h6></>}
+    body="Рулонные ворота из алюминиевых и стальных профилей очень широко используются в различных сферах жизнедеятельности. Они отличаются практичностью, надежностью, долговечностью и устойчивостью к высоким температурам и атмосферным осадкам. Рулонные ворота изготавливаются из алюминия или листовой стали толщиной до 2 мм. Для профилей ворот используются листы с полимерным покрытием, которое обеспечивает им дополнительную защиту от коррозии. Такие ворота могут быть оснащены различными типами управления, обеспечивающими их автоматическое или ручное поднятие."
+  />
+  const otkat_vorota = <AccordionBody
+    head={<>{ico(otkat_ico)}<h6>Откатные ворота</h6></>}
+    body="Гаражные секционные ворота - наиболее удобный и практичный способ закрыть проём для въезда автомобиля или подъезда к дому. Они состоят из секций, которые перемещаются по плоскости стены, уходя в плоскость потолка. Эти ворота изготовлены из стальныл сэндвич-панелей с заполнением вспененным полиуретаном. Они предоставляют отличную защиту предотвращения несанкционированного доступа и обеспечивают безопасность для вашего дома. Они могут быть изготовлены с различными функциями, такими как автоматическое открывание и закрывание, сигнализация и т. д."
+  />
+  const rasp_vorota = <AccordionBody
+    head={<>{ico(rasp_ico)}<h6>Распашные ворота</h6></>}
+    body="Гаражные секционные ворота - наиболее удобный и практичный способ закрыть проём для въезда автомобиля или подъезда к дому. Они состоят из секций, которые перемещаются по плоскости стены, уходя в плоскость потолка. Эти ворота изготовлены из стальныл сэндвич-панелей с заполнением вспененным полиуретаном. Они предоставляют отличную защиту предотвращения несанкционированного доступа и обеспечивают безопасность для вашего дома. Они могут быть изготовлены с различными функциями, такими как автоматическое открывание и закрывание, сигнализация и т. д."
+  />
 
   const cild1 = <AccordionHi
     body1={vert_zhaluzi}
@@ -70,21 +90,22 @@ export const Body = () => {
     body4={plisse_zhaluzi}
   />
   const cild2 = <AccordionHi
+  id="roll_block"
     body1={prof_roll}
     body2={upr_roll}
     body3={mont_roll}
     body4={calc_roll}
   />
   const cild3 = <AccordionHi
-    body1=""
-    body2=""
-    body3=""
-    body4=""
+    body1={section_vorota}
+    body2={rulon_vorota}
+    body3={otkat_vorota}
+    body4={rasp_vorota}
   />
 
 
   return (
-    <Container className='p-3' fluid='xxl'>
+    <Container className='py-3' fluid='xxl'>
       <Row>
         <ColBody name="Жалюзи" children={cild1} url={zh} />
         <ColBody name="Роллеты" children={cild2} url={roll} />

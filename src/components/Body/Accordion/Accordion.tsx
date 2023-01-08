@@ -1,9 +1,9 @@
 import { FC } from "react"
 import { Accordion } from "react-bootstrap"
 
-export const AccordionHi:FC<any> = ({body1, body2, body3, body4}:any) => {
+export const AccordionHi:FC<any> = ({body1, body2, body3, body4, id}:any) => {
   return (
-    <Accordion>
+    <Accordion className="my-3" id={id}>
       <Accordion.Item eventKey="0">
         {body1}
       </Accordion.Item>
