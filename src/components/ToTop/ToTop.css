@@ -1,0 +1,16 @@
+#toTop {
+  position: fixed;
+  right: 20px;
+  text-align: center;
+  transition-property: bottom;
+  transition-duration: 0.3s;
+  z-index: 1054;
+}
+
+.hidden {
+  bottom: -100px;
+}
+
+.visible {
+  bottom: 20px;
+}

@@ -1,5 +1,5 @@
 .grid {
-  background:  rgb(126, 126, 126);
+  background: black;
 }
 
 /* clear fix */
@@ -23,6 +23,7 @@
 .grid-item img {
   display: block;
   max-width: 100%;
+  border-radius: 5px;
 }
 
 .grid-item--width3 { 

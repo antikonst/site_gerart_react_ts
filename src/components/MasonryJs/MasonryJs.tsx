@@ -3,10 +3,12 @@ import Masonry from 'masonry-layout'
 import { rollimg } from './rollimg'
 import { useEffect, useState } from 'react'
 
+const gridd = document.querySelector('.grid')
+
 export const Masonryjs = () => {
 
   let rollimgmap = rollimg.map((item, index) =>
-    <div key={+index} className="grid-item">
+    <div key={+index} className="grid-item p-1">
       <img onClick={(e: any) => {
         e.target.parentNode.classList.toggle('grid-item--width3')
         ifmsnry(grid!)
@@ -16,18 +18,17 @@ export const Masonryjs = () => {
     </div>
   )
 
-  const [grid, setGrid] = useState(document.querySelector('.grid'))
+  const [grid, setGrid] = useState(gridd)
   const [mass, setMass] = useState(rollimgmap)
 
   const ifmsnry = (g: Element | null) => {
-    if (g != null) {
+    if (g) {
       const msnry = new Masonry(g, {
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
         percentPosition: true
       })
-      setGrid(g)
-      msnry.layout!()
+      setTimeout(() => msnry.layout!(), 300)
     }
   }
 
@@ -38,11 +39,13 @@ export const Masonryjs = () => {
   }, [grid, rollimg])
 
   return (
-    <div className="grid">
-      <div className="grid-sizer"></div>
-      <>
-        {mass}
-      </>
-    </div>
+    <>
+      <div className="grid">
+        <div className="grid-sizer"></div>
+        <>
+          {mass}
+        </>
+      </div>
+    </>
   )
 }

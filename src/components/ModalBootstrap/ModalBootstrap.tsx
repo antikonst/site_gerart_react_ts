@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
+import { CloseButton } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './ModalBootstrap.css'
@@ -28,8 +29,8 @@ export const ModalBootstrap:FC<Props> = ({children, title, btn_txt, btn_styles, 
       </Button>
 
       <Modal show={show} onHide={handleClose} fullscreen={true} >
-        <Modal.Header closeButton  className='black' >
-          <Modal.Title>{title}</Modal.Title>
+        <Modal.Header className='black' >
+          <CloseButton variant="white" onClick={handleClose}/>
         </Modal.Header>
         <Modal.Body  className='black' >{children}</Modal.Body>
       </Modal>

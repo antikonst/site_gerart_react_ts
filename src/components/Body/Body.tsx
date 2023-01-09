@@ -111,6 +111,7 @@ export const Body = () => {
         <ColBody name="Роллеты" children={cild2} url={roll} />
         <ColBody name="Ворота" children={cild3} url={vor} />
       </Row>
+      {/* <hr className="featurette-divider"></hr> */}
     </Container>
   )
 }
