@@ -32,7 +32,7 @@ export const MenuContact = () => {
           </a>
         </div>
         <div className="ico_menu">
-          <a title="позвонить" href="tel:+79215927107" target="_blank" rel="noopener noreferrer">
+          <a title="позвонить" href="tel:+79030956353" target="_blank" rel="noopener noreferrer">
             <div className="ico_top ico_tel">
               <svg className="swg" width="50" height="50">
                 <rect className="rect" width="15" height="60" fill="white">
@@ -43,11 +43,23 @@ export const MenuContact = () => {
           </a>
         </div>
         <div className="ico_menu">
-          <a title="SMS" href="sms:+79215927107?body=Здравствуйте! Я хочу сделать заказ." target="_blank" rel="noopener noreferrer">
+          <a title="SMS" href="sms:+79030956353?body=Здравствуйте! Я хочу сделать заказ." target="_blank" rel="noopener noreferrer">
             <div className="ico_top ico_chat">
               <svg className="swg" width="50" height="50">
                 <rect className="rect" width="15" height="60" fill="white">
                   <animate attributeName="x" from="-160" to="850"
+                    dur="5s" fill="freeze" repeatCount="indefinite" />
+                </rect>
+              </svg>
+            </div>
+          </a>
+        </div>
+        <div className="ico_menu">
+          <a title="Telegram" href="https://t.me/GerArtBot" target="_blank" rel="noopener noreferrer">
+            <div className="ico_top ico_telegram">
+              <svg className="swg" width="50" height="50">
+                <rect className="rect" width="15" height="60" fill="white">
+                  <animate attributeName="x" from="-210" to="800"
                     dur="5s" fill="freeze" repeatCount="indefinite" />
                 </rect>
               </svg>

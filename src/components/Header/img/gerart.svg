@@ -1,0 +1,62 @@
+<svg  width="150" height="150">
+				   <rect width="150" height="10" 
+					  x="0" y="0" fill="black" >
+						<animate attributeName="x" from="-300" to="0"
+					  dur="2s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <rect width="10" height="150" 
+					  x="0" y="0" fill="black" >
+						<animate attributeName="y" from="150" to="0"
+					  dur="1s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <rect width="50" height="10" 
+					  x="20" y="20" fill="black" >
+						<animate attributeName="x" from="-500" to="20"
+					  dur="2.5s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <rect width="50" height="10" 
+					  x="20" y="40" fill="black" >
+						<animate attributeName="x" from="-600" to="20"
+					  dur="2.7s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <rect width="50" height="10" 
+					  x="20" y="60" fill="black" >
+						<animate attributeName="x" from="-700" to="20"
+					  dur="2.9s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <rect width="10" height="130" 
+					  x="80" y="20" fill="black" >
+						<animate attributeName="y" from="850" to="20"
+					  dur="3.2s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <rect width="10" height="60" 
+					  x="140" y="90" fill="black" >
+						<animate attributeName="y" from="-1850" to="90"
+					  dur="3.9s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <rect width="10" height="60" 
+					  x="120" y="90" fill="black" >
+						<animate attributeName="y" from="-1850" to="90"
+					  dur="4.1s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <rect width="10" height="60" 
+					  x="100" y="90" fill="black" >
+						<animate attributeName="y" from="-1850" to="90"
+					  dur="4.3s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <rect width="30" height="10" 
+					  x="30" y="120" fill="black" >
+						<animate attributeName="y" from="950" to="120"
+					  dur="3.7s" fill="freeze" repeatCount="1"/>
+					</rect>
+					  <polyline style="stroke-linejoin:bevel; stroke:black;
+					  stroke-width:10; fill: none;"
+					  points="20 160, 45 80, 70 160" >
+						<animate attributeName="points" from="20 960, 45 980, 70 960" to="20 160, 45 80, 70 160"
+					  dur="3.7s" fill="freeze" repeatCount="1"/>
+					</polyline>
+					   <circle cx="120" cy="50" r="25" fill="none" stroke-width="10" stroke="black">
+						<animate attributeName="r" from="850" to="25"
+					  dur="3.5s" fill="freeze" repeatCount="1"/>
+					</circle>
+				</svg>

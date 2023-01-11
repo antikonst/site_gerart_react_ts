@@ -1,0 +1,85 @@
+
+  input.hamburger:checked ~ label > i {
+background-color: transparent;
+transform: rotate(90deg);
+}
+input.hamburger:checked ~ label > i:before {
+transform: translate(-50%, -50%) rotate(315deg);
+}
+input.hamburger:checked ~ label > i:after {
+transform: translate(-50%, -50%) rotate(-315deg);
+}
+input.hamburger:checked ~ label close {
+color: #000;
+width: 100%;
+}
+input.hamburger:checked ~ label open {
+color: transparent;
+width: 0;
+}
+    label.hamburger {
+/* z-index: 99;
+margin-right:28px;
+margin-top:5px; */
+position: relative;
+display: block;
+height: 50px;
+width: 50px;
+}
+label.hamburger:hover {
+cursor: pointer;
+}
+label.hamburger text close,
+label.hamburger text open {
+text-transform: uppercase;
+font-size: .8em;
+text-align: center;
+position: absolute;
+transform: translateY(50px);
+text-align: center;
+overflow: hidden;
+transition: width .25s .35s, color .45s .35s;
+}
+label.hamburger text close {
+color: transparent;
+right: 0;
+width: 0;
+}
+label.hamburger text open {
+color: #000;
+width: 100%;
+}
+label.hamburger > i {
+position: absolute;
+width: 100%;
+height: 2px;
+top: 50%;
+left: 0;
+background-color: #000;
+pointer-events: auto;
+transition-duration: .35s;
+transition-delay: .35s;
+}
+label.hamburger > i:before, label.hamburger > i:after {
+position: absolute;
+display: block;
+width: 100%;
+height: 2px;
+left: 50%;
+background-color: #000;
+content: "";
+transition: transform 0.35s;
+transform-origin: 50% 50%;
+}
+label.hamburger > i:before {
+transform: translate(-50%, -14px);
+}
+label.hamburger > i:after {
+transform: translate(-50%, 14px);
+}
+
+/* label.hamburger {
+position: fixed;
+top: 1px;
+right: 5px;
+} */

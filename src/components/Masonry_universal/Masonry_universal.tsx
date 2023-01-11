@@ -1,7 +1,6 @@
 import './Masonry_universal.css'
 import Masonry from 'masonry-layout'
 import { FC, useEffect, useLayoutEffect, useMemo, useState } from 'react'
-//import { rollimg } from '../MasonryJs/rollimg'
 
 interface Props {
   id: string
@@ -10,8 +9,6 @@ interface Props {
 }
 
 export const Masonry_universal: FC<Props> = ({ id, path_images, n }) => {
-
-  //const grid = document.querySelector(`grid ${id}`)
 
   let rollimg: any[] = []
 
@@ -32,7 +29,6 @@ export const Masonry_universal: FC<Props> = ({ id, path_images, n }) => {
           alt=''
           src={'' + result} />
       </div>
-
     )
   }
 
@@ -40,7 +36,6 @@ export const Masonry_universal: FC<Props> = ({ id, path_images, n }) => {
     for (let i = 0; i <= n; i++) {
       createRollImg(i)
     }
-    console.log('rollimg')
   }, [rollimg])
 
 
@@ -49,7 +44,6 @@ export const Masonry_universal: FC<Props> = ({ id, path_images, n }) => {
 
 
   const ifmsnry = (g: Element | null) => {
-
     const msnry = new Masonry(g!, {
       itemSelector: '.grid-item',
       columnWidth: '.grid-sizer',
@@ -58,12 +52,7 @@ export const Masonry_universal: FC<Props> = ({ id, path_images, n }) => {
     setTimeout(() => {
       msnry.layout!()
     }, 300)
-
   }
-
-
-  //setMass(rollimg)
-  //setGrid(document.querySelector(`.${id}`))
 
   async function setMassFunction() {
     let promise = new Promise((resolve, reject) => {
@@ -71,7 +60,6 @@ export const Masonry_universal: FC<Props> = ({ id, path_images, n }) => {
     })
     let result: any = await promise
     setMass(result)
-    console.log('mass')
   }
 
   async function setGridFunction() {
@@ -81,7 +69,6 @@ export const Masonry_universal: FC<Props> = ({ id, path_images, n }) => {
     let result: any = await promise
     setGrid(result)
     setTimeout(() => result && ifmsnry(result), 300)
-    console.log('grid')
   }
 
   useEffect(() => {
