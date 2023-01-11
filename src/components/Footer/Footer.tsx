@@ -1,9 +1,14 @@
+import { useContext } from 'react'
 import { Col, Container, Form, Nav, Navbar, Row, Stack } from 'react-bootstrap'
+import { Context } from '../../context'
 import { Logo } from '../Header/Logo'
 import { MenuContact } from '../Header/MenuContact'
 import './Footer.css'
 
 export const Footer = () => {
+
+  const {takeNum, takeHasMore} = useContext<any>(Context)
+
   return (
     <>
       <div className="container">
@@ -67,7 +72,7 @@ export const Footer = () => {
           </Stack> */}
           <Navbar expand="lg">
             <Nav className="me-auto">
-            <Navbar.Brand href="#"><Logo /></Navbar.Brand>
+            <Navbar.Brand onClick={()=>{takeNum(0); takeHasMore(true)}}><Logo /></Navbar.Brand>
               &copy; 2023 GerArt. Все права защищены.
             </Nav>
               <Nav className="ms-auto"><MenuContact /></Nav>

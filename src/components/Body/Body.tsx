@@ -23,10 +23,14 @@ import otkat_ico from './Accordion/AccordionBody/ico_vorota/otkat_ico.jpg'
 import { ModalBootstrap } from '../ModalBootstrap';
 import { CalcRollet } from '../CalcRollet';
 import { Masonry_universal } from '../Masonry_universal';
+import { FC, useContext, useEffect, useState } from 'react';
+import { Context } from '../../context';
 
-export const Body = () => {
+interface Props {
+  vidim: boolean
+}
 
-  //const [widthRollet, setWidthRollet] = useState(0)
+export const Body:FC<Props> = ({vidim}) => {
 
   const ico = (name: any) => <img width={30} height={30} className="rounded me-3" src={name} />
 
@@ -160,15 +164,24 @@ export const Body = () => {
     body4={rasp_vorota}
   />
 
+const vidimBlock = <Container className='py-3' fluid='xxl'>
+<Row>
+  <ColBody name="Жалюзи" children={cild1} url={zh} />
+  <ColBody name="Роллеты" children={cild2} url={roll} />
+  <ColBody name="Ворота" children={cild3} url={vor} />
+</Row>
+{/* <hr className="featurette-divider"></hr> */}
+</Container>
+
+  const [block, setBlock] = useState(vidimBlock) 
+  
+useEffect(()=>{
+  setBlock(vidim ? vidimBlock : <></>)
+},[vidim])
 
   return (
-    <Container className='py-3' fluid='xxl'>
-      <Row>
-        <ColBody name="Жалюзи" children={cild1} url={zh} />
-        <ColBody name="Роллеты" children={cild2} url={roll} />
-        <ColBody name="Ворота" children={cild3} url={vor} />
-      </Row>
-      {/* <hr className="featurette-divider"></hr> */}
-    </Container>
+    <>
+    {block}
+    </>
   )
 }

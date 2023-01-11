@@ -23,8 +23,8 @@ export function TopSlider() {
           alt="Рольставни"
         />
         <Carousel.Caption>
-          <h5>Рольставни</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h1 className='shadow'>Рольставни</h1>
+          <h5 className='shadow'>Рольставни - это защита от взлома, интерьерное решение для любых проёмов</h5>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -34,8 +34,8 @@ export function TopSlider() {
           alt="Ворота"
         />
         <Carousel.Caption>
-          <h5>Ворота</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h1 className='shadow'>Ворота</h1>
+          <h5 className='shadow'>Секционные и рулонные ворота для гаражей и ангаров, откатные и распашные ворота</h5>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -45,10 +45,10 @@ export function TopSlider() {
           alt="Жалюзи"
         />
         <Carousel.Caption>
-          <h5>Жалюзи</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h1 className='shadow'>Жалюзи</h1>
+          <h5 className='shadow'>
+          Вертикальные жалюзи, горизонтальные, рулонные шторы и шторы плиссе
+          </h5>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -58,10 +58,8 @@ export function TopSlider() {
           alt="Автоматика"
         />
         <Carousel.Caption>
-          <h5>Автоматика</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h1 className='shadow'>Автоматика</h1>
+          <h5 className='shadow'>Автоматика для ворот всех типов, рольставней, рулонных штор, жалюзи, шлагбаумы</h5>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
