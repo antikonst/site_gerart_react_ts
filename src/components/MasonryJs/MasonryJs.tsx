@@ -18,7 +18,7 @@ export const Masonryjs = () => {
     </div>
   )
 
-  const [grid, setGrid] = useState(gridd)
+  const [grid, setGrid] = useState(document.querySelector('.grid'))
   const [mass, setMass] = useState(rollimgmap)
 
   const ifmsnry = (g: Element | null) => {
@@ -28,7 +28,7 @@ export const Masonryjs = () => {
         columnWidth: '.grid-sizer',
         percentPosition: true
       })
-      setTimeout(() => msnry.layout!(), 300)
+      setTimeout(() => msnry.layout!(), 500)
     }
   }
 
