@@ -1,16 +1,18 @@
-import { Button, Container, Spinner } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Cards } from '../Cards'
-import InfiniteScroll from 'react-infinite-scroll-component'
-import { FC, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { ModalBootstrap } from '../ModalBootstrap';
 import { Masonry_universal } from '../Masonry_universal';
+import './CardsBlock.css'
 
 interface Props {
   num: number
   hasMore: boolean
+  windowScrollY: number
+  windowHeight: number
 }
 
-export const CardsBlock: FC<Props> = ({ num, hasMore }) => {
+export const CardsBlock: FC<Props> = ({ num, hasMore, windowScrollY, windowHeight }) => {
 
   const modal_vert_img = <ModalBootstrap
     title=""
@@ -72,10 +74,46 @@ export const CardsBlock: FC<Props> = ({ num, hasMore }) => {
         n={12} />
     } />
 
-  const key_from_date = new Date()
+
+  // const debug = document.querySelector('.debug');
+  // const boxes = document.querySelectorAll('.hidden');
+
+  // const displayed: any = {};
+
+  // const [vidimElems, setVidimElems] = useState([''])
+
+  // const scrollTracking = (entries: any) => {
+  //   for (const entry of entries) {
+  //     displayed[entry.target.id] = entry.intersectionRatio >= 0.2;
+  //   }
+  //   if (debug) {
+  //     debug.textContent = Object
+  //       .entries(displayed)
+  //       .filter(([id, inViewport]) => inViewport)
+  //       .map(([id, inViewport]) => id)
+  //       .join('\n')
+  //   }
+  //   setVidimElems(Object
+  //     .entries(displayed)
+  //     .filter(([id, inViewport]) => inViewport)
+  //     .map(([id, inViewport]) => id)
+  //   )
+  // }
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(scrollTracking, {
+  //     threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  //   });
+  //   boxes.forEach(element => observer.observe(element))
+  //   vidimElems.map(item => document.getElementById(item)?.classList.toggle('visible'))
+  //   console.log(vidimElems)
+  // }, [debug?.textContent])
+
+
 
   let items = [
-    <div key={+key_from_date}>
+    // <pre key={777} className="debug"></pre>,
+    <div key={0} className={"hidden"} id={'cardblockselem0'} >
       <Cards
         h2={"Вертикальные жалюзи."}
         h2_muted={'Просто и уютно'}
@@ -84,7 +122,7 @@ export const CardsBlock: FC<Props> = ({ num, hasMore }) => {
         src={require('./card_images/vertikal_zhaluzi.jpg')}
       />
     </div>,
-    <div key={+key_from_date + 1}>
+    <div key={1} className={"hidden"} id={'cardblockselem1'}>
       <Cards
         h2={"Горизонтальные жалюзи."}
         h2_muted={'Классика жанра'}
@@ -93,7 +131,7 @@ export const CardsBlock: FC<Props> = ({ num, hasMore }) => {
         src={require('./card_images/gorizontalka.jpg')}
       />
     </div>,
-    <div key={+key_from_date + 2}>
+    <div key={2} className={"hidden"} id={'cardblockselem2'}>
       <Cards
         h2={"Рулонные шторы."}
         h2_muted={'Отличное решение'}
@@ -102,7 +140,7 @@ export const CardsBlock: FC<Props> = ({ num, hasMore }) => {
         src={require('./card_images/rulonka.jpg')}
       />
     </div>,
-    <div key={+key_from_date + 3}>
+    <div key={3} className={"hidden"} id={'cardblockselem3'}>
       <Cards
         h2={"Шторы-плиссе."}
         h2_muted={'В любой плоскости'}
@@ -111,7 +149,7 @@ export const CardsBlock: FC<Props> = ({ num, hasMore }) => {
         src={require('./card_images/plisse.jpg')}
       />
     </div>,
-    <div key={+key_from_date + 4}>
+    <div key={4} className={"hidden"} id={'cardblockselem4'}>
       <Cards
         h2={"Рольставни."}
         h2_muted={'Защита и комфорт'}
@@ -119,7 +157,7 @@ export const CardsBlock: FC<Props> = ({ num, hasMore }) => {
         src={require('./card_images/rolleta.jpg')}
         right={false} />
     </div>,
-    <div key={+key_from_date + 5}>
+    <div key={5} className={"hidden"} id={'cardblockselem5'}>
       <Cards
         h2={"Секционные ворота."}
         h2_muted={'Идеи для дома'}
@@ -127,7 +165,7 @@ export const CardsBlock: FC<Props> = ({ num, hasMore }) => {
         src={require('./card_images/section_vorota.jpg')}
         right={true} />
     </div>,
-    <div key={+key_from_date + 6}>
+    <div key={6} className={"hidden"} id={'cardblockselem6'}>
       <Cards
         h2={"Автоматика."}
         h2_muted={'Удобно и безопасно'}
@@ -137,7 +175,7 @@ export const CardsBlock: FC<Props> = ({ num, hasMore }) => {
     </div>
   ]
 
-  let itemsArray = hasMore ? items : [<hr className="featurette-divider" />, items[num]]
+  let itemsArray = hasMore ? items : [<hr key={99999} className="featurette-divider" />, items[num]]
 
   return (
     <Container>

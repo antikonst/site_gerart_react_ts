@@ -1,7 +1,11 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import './ToTop.css'
 
-export const ToTop = () => {
+interface Props {
+  windowOnScrollY: number
+}
+
+export const ToTop:FC<Props> = ({windowOnScrollY}) => {
 
   const scrollUp = () => {
     window.scroll({
@@ -11,11 +15,9 @@ export const ToTop = () => {
   }
 
   const cls = "toTop "
-  const [gotop, setGotop] = useState(window.scrollY)
-  const vis = (gotop > 100) ? "visible" : "hidden"
+  const vis = (windowOnScrollY > 100) ? "visible" : "hidden"
   const [classtop, setClasstop] = useState(cls + vis)
   useEffect(() => {
-    window.onscroll = (() => setGotop(window.scrollY))
     setClasstop(cls + vis)
   })
 

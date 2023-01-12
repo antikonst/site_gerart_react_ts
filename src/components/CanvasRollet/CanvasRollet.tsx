@@ -1,3 +1,4 @@
+import React from "react"
 import { FC, useEffect, useLayoutEffect, useRef, useState } from "react"
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
   onKorob: (txt: number) => void
 }
 
-export const CanvasRollet: FC<Props> = ({ width, height, pr, color, onChange, onKorob }) => {
+export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, onChange, onKorob }) => {
 
   const [napr, setNapr] = useState(0)
   const [max_w, setMaxw] = useState(2150)
@@ -74,6 +75,7 @@ export const CanvasRollet: FC<Props> = ({ width, height, pr, color, onChange, on
     onKorob(maxkor && profilObj[pr][3][maxkor])
   }, [width, height, pr, color])
 
+  let i = 0
   const block = document.getElementById('roll_block') as HTMLElement
   const elem = block && block.getBoundingClientRect()
   const w_block = elem && elem.width
@@ -137,7 +139,7 @@ export const CanvasRollet: FC<Props> = ({ width, height, pr, color, onChange, on
 
   return (
     <>
-      <canvas style={{ margin: 1, display:"none" }} ref={canvasRef} width={wk + kor/koeff + 11} height={hk + 1} />
+      <canvas style={{ margin: 1, display:"none" }} ref={canvasRef} width={wk + kor/koeff + 12} height={hk + 1} />
     </>
   )
-}
+})

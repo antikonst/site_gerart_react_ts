@@ -5,13 +5,15 @@ import { CardsBlock } from './components/CardsBlock';
 import { ToTop } from './components/ToTop'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Context } from './context';
 
 function App() {
 
   const [numCardBlock, setNumCardBlock] = useState(0)
   const [hasMoreCards, setHasMoreCards] = useState(true)
+  const [windowscrollY, setwindowscrollY] = useState(window.scrollY)
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
 
   const takeNum = (n: number) => {
     setNumCardBlock(n)
@@ -21,6 +23,11 @@ function App() {
     setHasMoreCards(b)
   }
 
+  useEffect(()=>{
+    window.onscroll = (() => setwindowscrollY(window.scrollY))
+    setWindowHeight(window.innerHeight)
+  })
+
   return (
     <Context.Provider value={{
       takeNum,
@@ -29,9 +36,9 @@ function App() {
       <Header />
       <TopSlider />
       <Body vidim={hasMoreCards} />
-      <CardsBlock num={numCardBlock} hasMore={hasMoreCards} />
+      <CardsBlock num={numCardBlock} hasMore={hasMoreCards} windowScrollY={windowscrollY} windowHeight={windowHeight} />
       <Footer />
-      <ToTop />
+      <ToTop windowOnScrollY={windowscrollY} />
     </Context.Provider>
   );
 }
