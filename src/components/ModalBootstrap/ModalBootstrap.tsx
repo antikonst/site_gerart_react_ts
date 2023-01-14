@@ -10,9 +10,10 @@ interface Props {
   btn_txt:any, 
   btn_styles?:any
   closeModal?:any
+  variant?:any
 }
 
-export const ModalBootstrap:FC<Props> = ({children, title, btn_txt, btn_styles, closeModal}) => {
+export const ModalBootstrap:FC<Props> = ({children, title, btn_txt, btn_styles, closeModal, variant}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false)
@@ -24,7 +25,7 @@ export const ModalBootstrap:FC<Props> = ({children, title, btn_txt, btn_styles, 
 
   return (
     <>
-      <Button variant="outline-secondary" className={btn_styles} onClick={handleShow}>
+      <Button variant={variant ? variant : "outline-secondary"} className={btn_styles} onClick={handleShow}>
        {btn_txt}
       </Button>
 

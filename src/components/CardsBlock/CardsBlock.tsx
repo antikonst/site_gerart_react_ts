@@ -1,18 +1,17 @@
 import { Container } from 'react-bootstrap';
 import { Cards } from '../Cards'
-import { FC, useEffect, useState } from 'react'
+import { FC, useContext, useEffect, useState } from 'react'
 import { ModalBootstrap } from '../ModalBootstrap';
 import { Masonry_universal } from '../Masonry_universal';
 import './CardsBlock.css'
+import { VertikalInAccordion } from '../Body/Accordion/VertikalInAccordion';
+import { Context } from '../../context';
+import { GorizontalAccordion } from '../Body/Accordion/GorizontalAccordion';
 
-interface Props {
-  num: number
-  hasMore: boolean
-  windowScrollY: number
-  windowHeight: number
-}
+export const CardsBlock = () => {
 
-export const CardsBlock: FC<Props> = ({ num, hasMore, windowScrollY, windowHeight }) => {
+  const { numCardBlock, hasMoreCards } = useContext<any>(Context)
+  
 
   const modal_vert_img = <ModalBootstrap
     title=""
@@ -117,7 +116,11 @@ export const CardsBlock: FC<Props> = ({ num, hasMore, windowScrollY, windowHeigh
       <Cards
         h2={"Вертикальные жалюзи."}
         h2_muted={'Просто и уютно'}
-        text={<>Вертикальные тканевые жалюзи предназначены для защиты от солнечного света, блокируя его попадание в помещение.Ткань, используемая в {modal_vert_img}, обычно является светозащитным материалом, таким как плотная ткань, которая предназначена для блокирования большей части солнечного света. Жалюзи можно регулировать, вращая стержень или палочку, чтобы открывать и закрывать жалюзи. Затемняющая ткань обычно изготавливается из тяжелого, плотно сплетенного материала, который не пропускает свет в помещение.</>}
+        text={<>Вертикальные тканевые жалюзи предназначены для защиты от солнечного света, блокируя его попадание в помещение.Ткань, используемая в вертикальных жалюзи, обычно является светозащитным материалом, таким как плотная ткань, которая предназначена для блокирования большей части солнечного света. Жалюзи можно регулировать, вращая стержень или палочку, чтобы открывать и закрывать жалюзи. Затемняющая ткань обычно изготавливается из тяжелого, плотно сплетенного материала, который не пропускает свет в помещение.
+        <div className='mt-3'>
+        <VertikalInAccordion />
+        </div>
+        </>}
         right={false}
         src={require('./card_images/vertikal_zhaluzi.jpg')}
       />
@@ -126,7 +129,11 @@ export const CardsBlock: FC<Props> = ({ num, hasMore, windowScrollY, windowHeigh
       <Cards
         h2={"Горизонтальные жалюзи."}
         h2_muted={'Классика жанра'}
-        text={<>Горизонтальные жалюзи представляют собой панели, которые перемещаются по горизонтальной оси и используются для поддержания правильного уровня освещения и внутреннего микроклимата. Эти {modal_gorizontal_img} жалюзи применяются для контроля проникновения света и температуры в комнату. Они могут быть использованы на окнах в домах, офисах, магазинах и других помещениях. Кроме того, в некоторых случаях горизонтальные жалюзи могут быть использованы для улучшения безопасности и контроля доступа.</>}
+        text={<>Горизонтальные жалюзи представляют собой панели, которые перемещаются по горизонтальной оси и используются для поддержания правильного уровня освещения и внутреннего микроклимата. Эти горизонтальные жалюзи применяются для контроля проникновения света и температуры в комнату. Они могут быть использованы на окнах в домах, офисах, магазинах и других помещениях. Кроме того, в некоторых случаях горизонтальные жалюзи могут быть использованы для улучшения безопасности и контроля доступа.
+        <div className='mt-3'>
+        <GorizontalAccordion />
+        </div>
+        </>}
         right={true}
         src={require('./card_images/gorizontalka.jpg')}
       />
@@ -175,7 +182,7 @@ export const CardsBlock: FC<Props> = ({ num, hasMore, windowScrollY, windowHeigh
     </div>
   ]
 
-  let itemsArray = hasMore ? items : [<hr key={99999} className="featurette-divider" />, items[num]]
+  let itemsArray = hasMoreCards ? items : [<hr key={99999} className="featurette-divider" />, items[numCardBlock]]
 
   return (
     <Container>

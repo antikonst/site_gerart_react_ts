@@ -3,6 +3,7 @@ import { Col, Container, Form, Nav, Navbar, Row, Stack } from 'react-bootstrap'
 import { Context } from '../../context'
 import { Logo } from '../Header/Logo'
 import { MenuContact } from '../Header/MenuContact'
+import { NaGlavnuyu } from '../NaGlavnuyu'
 import './Footer.css'
 
 export const Footer = () => {
@@ -72,8 +73,8 @@ export const Footer = () => {
           </Stack> */}
           <Navbar expand="lg">
             <Nav className="me-auto">
-            <Navbar.Brand onClick={()=>{takeNum(0); takeHasMore(true)}}><Logo /></Navbar.Brand>
-              &copy; 2023 GerArt. Все права защищены.
+            <NaGlavnuyu text={'GerArt'} classnames={'me-3'} />
+              &copy; 2023г. Все права защищены.
             </Nav>
               <Nav className="ms-auto"><MenuContact /></Nav>
           </Navbar>

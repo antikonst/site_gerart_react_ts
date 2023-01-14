@@ -1,9 +1,19 @@
-import { FC } from "react"
+import { FC, useContext } from "react"
 import { Accordion } from "react-bootstrap"
+import { Context } from "../../../../context"
 
-export const AccordionBody: FC<any> = ({ head, body }: any) => {
+interface Props {
+  head: any
+  body: any
+  num: number
+}
+
+export const AccordionBody: FC<Props> = ({ head, body, num }) => {
+
+  const { clickHeadCalcRollet, headRolletClick, takeNum, setAccordionClickOpen, takeHasMore } = useContext<any>(Context)
+
   return (
-    <><Accordion.Header>{head}</Accordion.Header>
+    <><Accordion.Header onClick={() => {takeNum(num); clickHeadCalcRollet(!headRolletClick); setAccordionClickOpen(true); takeHasMore(false) }}>{head}</Accordion.Header>
       <Accordion.Body>
         {body}
       </Accordion.Body></>

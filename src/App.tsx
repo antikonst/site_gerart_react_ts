@@ -14,6 +14,8 @@ function App() {
   const [hasMoreCards, setHasMoreCards] = useState(true)
   const [windowscrollY, setwindowscrollY] = useState(window.scrollY)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
+  const [headRolletClick, setHeadRolletClick] = useState(false)
+  const [accordionClickOpen, setAccordionClickOpen] = useState(true)
 
   const takeNum = (n: number) => {
     setNumCardBlock(n)
@@ -23,7 +25,11 @@ function App() {
     setHasMoreCards(b)
   }
 
-  useEffect(()=>{
+  const clickHeadCalcRollet = (b: boolean) => {
+    setHeadRolletClick(b)
+  }
+
+  useEffect(() => {
     window.onscroll = (() => setwindowscrollY(window.scrollY))
     setWindowHeight(window.innerHeight)
   })
@@ -31,12 +37,19 @@ function App() {
   return (
     <Context.Provider value={{
       takeNum,
-      takeHasMore
+      hasMoreCards,
+      takeHasMore,
+      clickHeadCalcRollet,
+      headRolletClick,
+      accordionClickOpen, 
+      setAccordionClickOpen,
+      numCardBlock, 
+      setNumCardBlock
     }}>
       <Header />
       <TopSlider />
-      <Body vidim={hasMoreCards} />
-      <CardsBlock num={numCardBlock} hasMore={hasMoreCards} windowScrollY={windowscrollY} windowHeight={windowHeight} />
+      <Body/>
+      <CardsBlock />
       <Footer />
       <ToTop windowOnScrollY={windowscrollY} />
     </Context.Provider>

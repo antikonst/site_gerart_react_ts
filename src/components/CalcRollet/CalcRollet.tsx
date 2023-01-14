@@ -1,4 +1,5 @@
-import { useState } from "react"
+import React from "react"
+import { FC, useState } from "react"
 import { Button, Col, Form, OverlayTrigger, Popover, Row, Image, Offcanvas } from "react-bootstrap"
 import { CanvasRollet } from "../CanvasRollet"
 import { ColorRollet } from "../ColorRollet"
@@ -9,7 +10,13 @@ import { ProfileRollet } from "../ProfileRollet"
 import { UpravlenieRollet } from "../UpravlenieRollet"
 import './CalcRollet.css'
 
-export const CalcRollet = () => {
+
+
+type MemoChildProps = {
+	test: { some: string };
+}
+
+export const CalcRollet = React.memo<MemoChildProps>(() => {
   const [width, setWidth] = useState(1200)
   const [height, setHeight] = useState(1200)
   const [profile, setProfile] = useState(39)
@@ -84,10 +91,11 @@ export const CalcRollet = () => {
           color={colors[col]}
           onChange={(data) => setDataCanvasPryamo(data)}
           onKorob={(text) => setKorob(text)}
-        />
+          open={showrolleta} 
+          />
       </Form>
 
 
     </>
   )
-}
+})

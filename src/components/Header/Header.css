@@ -1,3 +1,15 @@
 .z_index {
-  z-index: 1060;
+  /* z-index: 1060;
+  position: fixed; */
+  right: 0;
+}
+@media (max-width: 576px) {
+  .max576 {
+    display: none;
+  }
+}
+@media (max-width: 820px) {
+  .max820 {
+    display: none;
+  }
 }

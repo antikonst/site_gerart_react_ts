@@ -1,11 +1,18 @@
-import { useState } from "react";
-import { Nav, Navbar, Offcanvas } from "react-bootstrap"
-import { Hamburger } from "../Hamburger"
+import { useContext, useState } from "react";
+import { Col, Nav, Navbar, Offcanvas, Row } from "react-bootstrap"
+import { Hamburger } from "./Hamburger"
 import { MenuContact } from "./MenuContact"
 import './Header.css'
-import { TopMenu } from "../TopMenu";
+import { TopMenu } from "./TopMenu";
+import { Context } from "../../context";
+import { NaGlavnuyu } from "../NaGlavnuyu";
+import { Search } from "./Search";
 
 export const Header = () => {
+
+  const { takeNum, takeHasMore, setAccordionClickOpen } = useContext<any>(Context)
+
+  const ham = document.getElementById('hamburger')
 
   const [show, setShow] = useState(false);
 
@@ -30,11 +37,17 @@ export const Header = () => {
         <Nav className="me-auto">
           <MenuContact />
         </Nav>
+        <Nav className="me-auto max576">
+          <NaGlavnuyu text='GerArt' classnames={"me-auto"} />
+        </Nav>
+        <Nav className="me-auto max820">
+          <Search />
+        </Nav>
         <Nav id="hamburgerButton" className="me-2 z_index" onClick={() => showTrue()}>
           <Hamburger checked={show} />
         </Nav>
       </Navbar>
-      <Offcanvas show={show} onHide={handleClose} placement="end">
+      <Offcanvas show={show} onHide={() => {handleClose(); ham?.click(); setTimeout(() => setOpenclose(false), 101)}} placement="end">
         <Offcanvas.Header>
           <Offcanvas.Title>Меню</Offcanvas.Title>
         </Offcanvas.Header>
