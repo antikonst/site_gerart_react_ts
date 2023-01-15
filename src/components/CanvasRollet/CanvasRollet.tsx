@@ -56,6 +56,7 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
         ctx.fillStyle = color
         ctx.fillRect(0, 0, wk, hk)
         if (pr === 56) {
+          ctx.lineWidth = 0.1
           ctx.fillStyle = "white"
           for (let i = 0; i <= Math.floor((width - 175) / 100); i++) {
             for (let j = 0; j <= Math.ceil((height - kor)) / 56; j++) {
@@ -64,6 +65,7 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
             }
           }
         }
+        ctx.lineWidth = 1
         ctx.fillStyle = color
         ctx.fillRect(0, 0, wk, kor / koeff)
         ctx.fillRect(0, kor / koeff, napr / koeff, hk - kor / koeff)
@@ -71,6 +73,7 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
         ctx.strokeRect(0, 0, wk, kor / koeff)
         ctx.strokeRect(0, kor / koeff, napr / koeff, hk - kor / koeff)
         ctx.strokeRect(wk - napr / koeff, kor / koeff, napr / koeff, hk - kor / koeff)
+        ctx.lineWidth = 0.1
         for (let i = 0; i <= (height - kor) / pr; i++) {
           ctx.beginPath();
           ctx.moveTo(napr / koeff, hk - i * pr / koeff);
@@ -78,6 +81,7 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
           ctx.closePath();
           ctx.stroke();
         }
+        ctx.lineWidth = 1
         ctx.fillStyle = color
         ctx.lineWidth = 1
         ctx.beginPath();
