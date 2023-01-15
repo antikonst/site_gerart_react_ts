@@ -223,7 +223,6 @@ export const CalcRollet = React.memo<MemoChildProps>(() => {
           color={colors[col]}
           onChange={(data) => setDataCanvasPryamo(data)}
           onKorob={(text) => setKorob(text)}
-          open={showrolleta}
         />
       </Form>
 

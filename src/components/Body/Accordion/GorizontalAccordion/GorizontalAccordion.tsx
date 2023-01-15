@@ -11,6 +11,7 @@ export const GorizontalAccordion = () => {
 
     const modal_gorizontal_img = <ModalBootstrap
     title=""
+    variant={"outline-primary"}
     btn_txt={
       <>
         <Nav.Item>
@@ -19,7 +20,7 @@ export const GorizontalAccordion = () => {
           <span className="span_text">фото</span>
         </Nav.Item>
       </>
-    }
+    } 
     children={
       <Masonry_universal
         id={'gor'}

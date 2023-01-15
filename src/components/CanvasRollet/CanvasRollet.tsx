@@ -2,18 +2,18 @@ import React, { forwardRef, RefObject, useContext, useImperativeHandle } from "r
 import { FC, useEffect, useLayoutEffect, useRef, useState } from "react"
 import { Context } from "../../context"
 import { profilObj } from "./profileObj"
+import './CanvasRollet.css'
 
 interface Props {
   width: number
   height: number
   pr: number
   color: string
-  open: boolean
   onChange: (txt: string) => void
   onKorob: (txt: number) => void
 }
 
-export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, open, onChange, onKorob }) => {
+export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, onChange, onKorob }) => {
 
   const { headRolletClick } = useContext<any>(Context)
 
@@ -21,7 +21,8 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
   const [max_w, setMaxw] = useState(2150)
   const [max_h, setMaxh] = useState(4017)
   const [kor, setKor] = useState(137)
-  const [data, setData] = useState('')
+  //const [data, setData] = useState('')
+let data = ''
 
   useEffect(() => {
     setNapr(profilObj[pr][0])
@@ -30,14 +31,13 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
     let maxkor = Object.keys(profilObj[pr][3]).find(item => height <= +item)
     setKor(maxkor && profilObj[pr][3][maxkor])
     onKorob(maxkor && profilObj[pr][3][maxkor])
-    canvasPryamo()
-  }, [width, height, pr, color, headRolletClick])
+  }, [pr, headRolletClick])
 
   useEffect(()=>{
     canvasPryamo()
-  })
+  }, [width, height, pr, color, headRolletClick])
 
-  //console.log('render canvas')
+  console.log('render canvas')
 
   const block = (document.getElementById('roll_block') as HTMLElement)
   const elem = block && block.getBoundingClientRect()
@@ -95,15 +95,16 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
         ctx.lineTo(wk + 10, hk);
         ctx.stroke();
         ctx.fill();
-        setData((canvas as unknown as HTMLCanvasElement).toDataURL('image/png', 1.0))
+        //setData((canvas as unknown as HTMLCanvasElement).toDataURL('image/png', 1.0))
+        data = (canvas as unknown as HTMLCanvasElement).toDataURL('image/png', 1.0)
         onChange(data)
       }
     }
   }
 
   return (
-    <>
-      <canvas style={{ margin: 1, display: "none" }} ref={canvasRef} width={wk + kor / koeff + 12} height={hk + 1} />
-    </>
+    <div className="canvas-styles" >
+      <canvas ref={canvasRef} width={wk + kor / koeff + 12} height={hk + 1} />
+    </div>
   )
 })
