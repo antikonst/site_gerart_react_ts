@@ -22,7 +22,7 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
   const [max_h, setMaxh] = useState(4017)
   const [kor, setKor] = useState(137)
   //const [data, setData] = useState('')
-let data = ''
+  let data = ''
 
   useEffect(() => {
     setNapr(profilObj[pr][0])
@@ -33,7 +33,7 @@ let data = ''
     onKorob(maxkor && profilObj[pr][3][maxkor])
   }, [pr, headRolletClick])
 
-  useEffect(()=>{
+  useEffect(() => {
     canvasPryamo()
   }, [width, height, pr, color, headRolletClick])
 

@@ -27,6 +27,8 @@ import { FC, useContext, useEffect, useState } from 'react';
 import { Context } from '../../context';
 import { VertikalInAccordion } from './Accordion/VertikalInAccordion';
 import { GorizontalAccordion } from './Accordion/GorizontalAccordion';
+import { RulonkaAccordion } from './Accordion/RulonkaAccordion';
+import { PlisseAccordion } from './Accordion/PlisseAccordion';
 
 
 
@@ -107,11 +109,11 @@ export const Body = () => {
     num={1}  />
   const rulon_zhaluzi = <AccordionBody
     head={<>{ico(ico_rulon_zhaluzi)}<h6>Рулонные шторы</h6></>}
-    body={<>Рулонные шторы на окна являются идеальным решением для {modal_rulon_img} интерьера. Они позволяют добиться стильного и необычного вида. У них есть дополнительные преимущества, такие как простота монтажа, разнообразие дизайна и комплекта для окон, а также стильные и практичные цвета. Они просто устанавливаются на любые окна и дают гармоничное сочетание с другими декоративными элементами, такими как декоративные подушки или карнизы. Они также могут быть использованы для регулировки света и температуры в помещении.</>} 
+    body={<RulonkaAccordion />} 
     num={2}  />
   const plisse_zhaluzi = <AccordionBody
     head={<>{ico(ico_plisse_zhaluzi)}<h6>Шторы плиссе</h6></>}
-    body={<>Шторы плиссе в стиле минимализма замечательно подходят для создания чистого и приятного интерьера.{modal_plisse_img} представляют собой классические простые полотна, которые прекрасно гармонируют с различными видами интерьеров. Они имеют простое и минималистичное дизайнерское решение, которое подчеркивает стиль вашего интерьера и придает ему уют и легкость. Такие шторы прекрасно подходят для создания ощущения простоты и прозрачности. Они могут добавить необычный эффект в ваш интерьер, делая его более гармоничным и красивым.</>} 
+    body={<PlisseAccordion />} 
     num={3}  />
   const prof_roll = <AccordionBody
     head={<>{ico(ico_prof_roll)}<h6>Профили роллет</h6></>}
