@@ -246,7 +246,7 @@ export const CardsBlock = () => {
         {itemsArray}
       </Container> */}
       <Container>
-        <BrowserRouter>
+        <BrowserRouter basename='/'>
           <Routes>
             <Route path="/" element={itemsArray} />
             <Route path={links[0]} element={items[0]} />
