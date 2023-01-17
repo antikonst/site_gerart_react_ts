@@ -22,7 +22,7 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
   const [max_h, setMaxh] = useState(4017)
   const [kor, setKor] = useState(137)
   //const [data, setData] = useState('')
-  let data = ''
+  //let data = ''
 
   useEffect(() => {
     setNapr(profilObj[pr][0])
@@ -37,8 +37,11 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
     canvasPryamo()
   }, [width, height, pr, color, headRolletClick])
 
-  console.log('render canvas')
+  //console.log('render canvas')
 
+  const canvasRef: RefObject<HTMLCanvasElement> = useRef(null)
+  const canvas = canvasRef.current
+  const ctx = canvas?.getContext('2d')
   const block = (document.getElementById('roll_block') as HTMLElement)
   const elem = block && block.getBoundingClientRect()
   const w_block = elem && elem.width
@@ -46,11 +49,9 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
   const wk = width / koeff
   const hk = height / koeff
 
-  const canvasRef: RefObject<HTMLCanvasElement> = useRef(null)
-  const canvas = canvasRef.current
-  const ctx = canvas?.getContext('2d')
-
   const canvasPryamo = () => {
+    let data = ''
+
     if (width > 300 && height > 300) {
       if (ctx) {
         ctx.fillStyle = color
