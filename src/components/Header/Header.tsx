@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Col, Nav, Navbar, Offcanvas, Row } from "react-bootstrap"
 import { Hamburger } from "./Hamburger"
 import { MenuContact } from "./MenuContact"
@@ -31,8 +31,10 @@ export const Header = () => {
     }
   }
 
+
+
   return (
-    <>
+    <div>
       <Navbar className="py-0">
         <Nav className="me-auto">
           <MenuContact />
@@ -55,6 +57,6 @@ export const Header = () => {
           <TopMenu onChange={txt => setTimeout(() => setOpenclose(txt), 101)}/>
         </Offcanvas.Body>
       </Offcanvas>
-    </>
+    </div>
   )
 }

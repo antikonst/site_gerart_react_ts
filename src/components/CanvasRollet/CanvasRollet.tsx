@@ -49,8 +49,8 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
   const wk = width / koeff
   const hk = height / koeff
 
+  let data = ''
   const canvasPryamo = () => {
-    let data = ''
 
     if (width > 300 && height > 300) {
       if (ctx) {
@@ -101,6 +101,7 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
         onChange(data)
       }
     }
+    return onChange(data)
   }
 
   return (

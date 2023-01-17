@@ -5,7 +5,7 @@ import { CardsBlock } from './components/CardsBlock';
 import { ToTop } from './components/ToTop'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Context } from './context';
 
 function App() {
@@ -28,11 +28,14 @@ function App() {
   const clickHeadCalcRollet = (b: boolean) => {
     setHeadRolletClick(b)
   }
-
-  useEffect(() => {
-    window.onscroll = (() => setwindowscrollY(window.scrollY))
-    setWindowHeight(window.innerHeight)
-  })
+  
+  
+    // setTimeout(()=>{
+    //   window.onscroll = (() => setwindowscrollY(window.scrollY))
+    //   setWindowHeight(window.innerHeight)
+    // },500)
+  
+    
 
   return (
     <Context.Provider value={{
@@ -51,7 +54,7 @@ function App() {
       <Body/>
       <CardsBlock />
       <Footer />
-      <ToTop windowOnScrollY={windowscrollY} />
+      <ToTop />
     </Context.Provider>
   );
 }

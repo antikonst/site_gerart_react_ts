@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { Col, Container, Form, Nav, Navbar, Row, Stack } from 'react-bootstrap'
 import { Context } from '../../context'
+import { links } from '../../links'
 import { Logo } from '../Header/Logo'
 import { MenuContact } from '../Header/MenuContact'
 import { NaGlavnuyu } from '../NaGlavnuyu'
@@ -18,30 +19,30 @@ export const Footer = () => {
             <div className="col-6 col-md-2 mb-3">
               <h5>Жалюзи</h5>
               <ul className="nav flex-column">
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Вертикальные</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Горизонтальные</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Рулонные шторы</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Шторы-плиссе</a></li>
+                <li className="nav-item mb-2"><a href={links[0]} className="nav-link p-0 text-muted">Вертикальные</a></li>
+                <li className="nav-item mb-2"><a href={links[1]} className="nav-link p-0 text-muted">Горизонтальные</a></li>
+                <li className="nav-item mb-2"><a href={links[2]} className="nav-link p-0 text-muted">Рулонные шторы</a></li>
+                <li className="nav-item mb-2"><a href={links[3]} className="nav-link p-0 text-muted">Шторы-плиссе</a></li>
               </ul>
             </div>
 
             <div className="col-6 col-md-2 mb-3">
               <h5>Роллеты</h5>
               <ul className="nav flex-column">
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Профили</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Управление</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Монтаж</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Расчёт</a></li>
+                <li className="nav-item mb-2"><a href={links[4]} className="nav-link p-0 text-muted">Профили</a></li>
+                <li className="nav-item mb-2"><a href={links[5]} className="nav-link p-0 text-muted">Управление</a></li>
+                <li className="nav-item mb-2"><a href={links[6]} className="nav-link p-0 text-muted">Монтаж</a></li>
+                <li className="nav-item mb-2"><a href={links[7]} className="nav-link p-0 text-muted">Расчёт</a></li>
               </ul>
             </div>
 
             <div className="col-6 col-md-2 mb-3">
               <h5>Ворота</h5>
               <ul className="nav flex-column">
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Секционные</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Рулонные</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Откатные</a></li>
-                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted">Распашные</a></li>
+                <li className="nav-item mb-2"><a href={links[8]} className="nav-link p-0 text-muted">Секционные</a></li>
+                <li className="nav-item mb-2"><a href={links[9]} className="nav-link p-0 text-muted">Рулонные</a></li>
+                <li className="nav-item mb-2"><a href={links[10]} className="nav-link p-0 text-muted">Откатные</a></li>
+                <li className="nav-item mb-2"><a href={links[11]} className="nav-link p-0 text-muted">АВТОМАТИКА</a></li>
               </ul>
             </div>
 

@@ -1,6 +1,6 @@
 .z_index {
-  /* z-index: 1060;
-  position: fixed; */
+  z-index: 1055;
+  /* position: fixed; */
   right: 0;
 }
 @media (max-width: 576px) {

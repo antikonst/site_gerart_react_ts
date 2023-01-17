@@ -31,7 +31,7 @@ export const ModalBootstrap:FC<Props> = ({children, title, btn_txt, btn_styles, 
 
       <Modal show={show} onHide={handleClose} fullscreen={true} >
         <Modal.Header className='black' >
-          <CloseButton variant="white" onClick={handleClose}/>
+          <CloseButton variant="white" onClick={handleClose} />
         </Modal.Header>
         <Modal.Body  className='black' >{children}</Modal.Body>
       </Modal>

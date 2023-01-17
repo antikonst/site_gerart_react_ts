@@ -13,13 +13,18 @@ export const NaGlavnuyu: FC<Props> = ({ text, classnames }) => {
   const { takeNum, takeHasMore, setAccordionClickOpen } = useContext<any>(Context)
 
   return (
-    <Button className={classnames} variant="outline-primary" onClick={() => {
-      setAccordionClickOpen(true); takeNum(0); takeHasMore(true);
-      window.scroll({
-        top: 0,
-        behavior: "smooth"
-      })
-    }}>
+    <Button 
+    className={classnames} 
+    variant="outline-primary" 
+    // onClick={() => {
+    //   setAccordionClickOpen(true); takeNum(0); takeHasMore(true);
+    //   window.scroll({
+    //     top: 0,
+    //     behavior: "smooth"
+    //   })
+    // }}
+    href="/"
+    >
       <Row>
         <Col xs={4}><Logo /></Col>
         <Col xs={8} className="pt-2">{text}</Col>

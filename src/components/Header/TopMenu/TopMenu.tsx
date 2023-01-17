@@ -1,6 +1,7 @@
 import { FC, useContext } from "react"
 import { Button, Col, Navbar, Row } from "react-bootstrap"
 import { Context } from "../../../context"
+import { links } from "../../../links"
 import { Logo } from "../Logo"
 import { Search } from "../Search"
 
@@ -14,11 +15,12 @@ export const TopMenu: FC<Props> = ({ onChange }) => {
 
   const ham = document.getElementById('hamburger')
 
-  const elem = (num: number, boo: boolean, text: string) => <Button variant="outline-primary" onClick={() => { ham?.click(); onChange(false); takeNum(num); takeHasMore(boo); setAccordionClickOpen(false) }} >{text}</Button>
+  //const elem = (num: number, boo: boolean, text: string) => <Button href={links[num]} variant="outline-primary" onClick={() => { ham?.click(); onChange(false); takeNum(num); takeHasMore(boo); setAccordionClickOpen(false) }} >{text}</Button>
+  const elem = (num: number, boo: boolean, text: string) => <Button href={links[num]} variant="outline-primary" onClick={() => { ham?.click() }} >{text}</Button>
 
   return (
     <div className="d-grid gap-2">
-      <Button variant="outline-primary" onClick={() => { setAccordionClickOpen(true); takeNum(0); takeHasMore(true); ham?.click(); onChange(false); }}>
+      <Button variant="outline-primary" href="/" onClick={() => { setAccordionClickOpen(true); takeNum(0); takeHasMore(true); ham?.click(); onChange(false); }}>
         <Row>
           <Col xs={2}><Logo /></Col>
           <Col xs={10} className="pt-2">На главную</Col>
