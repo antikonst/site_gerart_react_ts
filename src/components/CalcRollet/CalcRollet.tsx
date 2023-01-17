@@ -1,6 +1,7 @@
-import React, { useEffect } from "react"
+import React, { useContext, useEffect } from "react"
 import { FC, useState } from "react"
 import { Button, Col, Form, OverlayTrigger, Popover, Row, Image, Offcanvas, ButtonToolbar } from "react-bootstrap"
+import { Context } from "../../context"
 import { CanvasRollet } from "../CanvasRollet"
 import { ColorRollet } from "../ColorRollet"
 import { ElemUprRollet } from "../ElemUprRollet"
@@ -165,6 +166,9 @@ export const CalcRollet = React.memo<MemoChildProps>(() => {
   }, [korob, profile, width, height, upravlenie, elemUpr])
   //console.log(price)
 
+  const { clickHeadCalcRollet, headRolletClick } = useContext<any>(Context)
+
+
   return (
     <>
       <Form validated>
@@ -182,7 +186,13 @@ export const CalcRollet = React.memo<MemoChildProps>(() => {
         <ElemUprRollet onChange={(txt) => setElemUpr(txt)} upravlenie={upravlenie} />
         <ButtonToolbar
           className="justify-content-between mx-1">
-          <Button variant="outline-secondary" onClick={rolletaShow} className="mt-1" size="lg">
+          <Button variant="outline-secondary"
+            onClick={() => {
+              rolletaShow();
+              clickHeadCalcRollet(!headRolletClick)
+            }}
+            className="mt-1"
+            size="lg">
             Эскиз
           </Button>
           <Button variant={price ? "outline-success" : "outline-danger"} onClick={rolletaShow} className="mt-1" size="lg">

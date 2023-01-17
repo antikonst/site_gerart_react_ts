@@ -37,22 +37,26 @@ export const CanvasRollet: FC<Props> = React.memo(({ width, height, pr, color, o
     canvasPryamo()
   }, [width, height, pr, color, headRolletClick])
 
-  //console.log('render canvas')
+  // useEffect(() => {
+  //   canvasPryamo()
+  // }, [])
+
+  // console.log('render canvas')
 
   const canvasRef: RefObject<HTMLCanvasElement> = useRef(null)
   const canvas = canvasRef.current
   const ctx = canvas?.getContext('2d')
-  const block = (document.getElementById('roll_block') as HTMLElement)
-  const elem = block && block.getBoundingClientRect()
-  const w_block = elem && elem.width
-  const koeff = width / w_block
+  // const block = (document.getElementById('roll_block') as HTMLElement)
+  // const elem = block && block.getBoundingClientRect()
+  // const w_block = elem && elem.width
+  const koeff = width / 300
   const wk = width / koeff
   const hk = height / koeff
 
   let data = ''
   const canvasPryamo = () => {
 
-    if (width > 300 && height > 300) {
+    if (width >= 300 && height >= 300) {
       if (ctx) {
         ctx.fillStyle = color
         ctx.fillRect(0, 0, wk, hk)

@@ -12,8 +12,8 @@ function App() {
 
   const [numCardBlock, setNumCardBlock] = useState(0)
   const [hasMoreCards, setHasMoreCards] = useState(true)
-  const [windowscrollY, setwindowscrollY] = useState(window.scrollY)
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
+  // const [windowscrollY, setwindowscrollY] = useState(window.scrollY)
+  // const [windowHeight, setWindowHeight] = useState(window.innerHeight)
   const [headRolletClick, setHeadRolletClick] = useState(false)
   const [accordionClickOpen, setAccordionClickOpen] = useState(true)
 
@@ -28,14 +28,6 @@ function App() {
   const clickHeadCalcRollet = (b: boolean) => {
     setHeadRolletClick(b)
   }
-  
-  
-    // setTimeout(()=>{
-    //   window.onscroll = (() => setwindowscrollY(window.scrollY))
-    //   setWindowHeight(window.innerHeight)
-    // },500)
-  
-    
 
   return (
     <Context.Provider value={{
