@@ -7,6 +7,8 @@ import { Footer } from './components/Footer'
 import { Header } from './components/Header';
 import { useEffect, useRef, useState } from 'react';
 import { Context } from './context';
+import { ResultSearch } from './components/ResultSearch';
+import { Container } from 'react-bootstrap';
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
   // const [windowHeight, setWindowHeight] = useState(window.innerHeight)
   const [headRolletClick, setHeadRolletClick] = useState(false)
   const [accordionClickOpen, setAccordionClickOpen] = useState(true)
+  const [searchBlock, setSearchBlock]= useState(<>'какие-то слова'</>)
 
   const takeNum = (n: number) => {
     setNumCardBlock(n)
@@ -29,6 +32,8 @@ function App() {
     setHeadRolletClick(b)
   }
 
+const vidim = hasMoreCards ? <></> : <Container>{searchBlock}</Container>
+
   return (
     <Context.Provider value={{
       takeNum,
@@ -39,10 +44,13 @@ function App() {
       accordionClickOpen, 
       setAccordionClickOpen,
       numCardBlock, 
-      setNumCardBlock
+      setNumCardBlock,
+      searchBlock, 
+      setSearchBlock
     }}>
       <Header />
       <TopSlider />
+      {vidim}
       <Body/>
       <CardsBlock />
       <Footer />

@@ -170,7 +170,7 @@ export const Body = () => {
     body4={rasp_vorota}
   />
 
-  const vidimBlock = <Container className='py-3' fluid='xxl'>
+  const vidimBlock = hasMoreCards && <Container className='py-3' fluid='xxl'>
     <Row>
       <ColBody name="Жалюзи" children={cild1} url={zh} />
       <ColBody name="Роллеты" children={cild2} url={roll} />
