@@ -3,6 +3,7 @@ import { Button, Container, Form, InputGroup } from "react-bootstrap"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Context } from "../../../context"
 import { links } from "../../../links"
+import { oglavlenie_menu } from "../../../oglavlenie_menu"
 import { texts } from "../../../texts"
 
 export const Search = () => {
@@ -23,7 +24,11 @@ export const Search = () => {
     const text_ssilki = <a href={links[0]}>{inputText}</a>
     const neo = massiv.map((item: string, index: number) => ((item.search(inputText) > 0) ? (
       //item.split('').slice(0, item.search(inputText)).concat(text_ssilki).concat(item.split('').slice(item.search(inputText) + inputLength)).join('')
-      <p key={index}>{item.split('').slice(0, item.search(inputText))}   <a href={links[index]}>{inputText}</a>   {item.split('').slice(item.search(inputText) + inputLength)}</p>
+      <p key={index}>
+        <h3><a href={links[index]}>{oglavlenie_menu[index]}</a></h3>
+         ...{item.split('').slice(((item.search(inputText) -20) <20) ? 0 : (item.search(inputText) -20), item.search(inputText))}   
+         <a href={links[index]}>{inputText}</a>   
+         {item.split('').slice(item.search(inputText) + inputLength, item.search(inputText) + inputLength + 20)}... </p>
     ) : ''))
     //let result = [neo[1], neo]
     // neo.map((item, index) => (
@@ -31,7 +36,7 @@ export const Search = () => {
     // ))
     setSearchBlock(neo)
     takeHasMore(false)
-    console.log(neo)
+    //console.log(neo)
   }
 
   const w = (event: any) => {
@@ -47,7 +52,7 @@ export const Search = () => {
     //setSearchBlock(massiv)
 
     //console.log(massiv)
-    console.log(searchBlock)
+    //console.log(searchBlock)
   }
 
   return (

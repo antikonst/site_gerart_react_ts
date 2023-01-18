@@ -2,6 +2,7 @@ import { FC, useContext } from "react"
 import { Button, Col, Navbar, Row } from "react-bootstrap"
 import { Context } from "../../../context"
 import { links } from "../../../links"
+import { oglavlenie_menu } from "../../../oglavlenie_menu"
 import { Logo } from "../Logo"
 import { Search } from "../Search"
 
@@ -27,18 +28,18 @@ export const TopMenu: FC<Props> = ({ onChange }) => {
         </Row>
       </Button>
       <Search />
-      {elem(0, false, 'Вертикальные жалюзи')}
-      {elem(1, false, 'Горизонтальные жалюзи')}
-      {elem(2, false, 'Рулонные шторы')}
-      {elem(3, false, 'Шторы-плиссе')}
-      {elem(4, false, 'Профили роллет')}
-      {elem(5, false, 'Управление роллет')}
-      {elem(6, false, 'Монтаж роллет')}
-      {elem(7, false, 'Расчёт роллет')}
-      {elem(8, false, 'Секционные ворота')}
-      {elem(9, false, 'Рулонные ворота')}
-      {elem(10, false, 'Откатные ворота')}
-      {elem(11, false, 'Автоматика')}
+      {elem(0, false, oglavlenie_menu[0])}
+      {elem(1, false, oglavlenie_menu[1])}
+      {elem(2, false, oglavlenie_menu[2])}
+      {elem(3, false, oglavlenie_menu[3])}
+      {elem(4, false, oglavlenie_menu[4])}
+      {elem(5, false, oglavlenie_menu[5])}
+      {elem(6, false, oglavlenie_menu[6])}
+      {elem(7, false, oglavlenie_menu[7])}
+      {elem(8, false, oglavlenie_menu[8])}
+      {elem(9, false, oglavlenie_menu[9])}
+      {elem(10, false, oglavlenie_menu[10])}
+      {elem(11, false, oglavlenie_menu[11])}
     </div>
   )
 }
