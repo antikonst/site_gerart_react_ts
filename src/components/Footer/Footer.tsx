@@ -5,6 +5,7 @@ import { links } from '../../links'
 import { Logo } from '../Header/Logo'
 import { MenuContact } from '../Header/MenuContact'
 import { NaGlavnuyu } from '../NaGlavnuyu'
+import { SendTg } from '../SendTg'
 import './Footer.css'
 
 export const Footer = () => {
@@ -61,7 +62,8 @@ export const Footer = () => {
                     <Form.Control.Feedback type="invalid">
                     </Form.Control.Feedback>
                   </Form.Floating>
-                  <button className="btn btn-primary" type="button">Отправить</button>
+                  {/* <button className="btn btn-primary" type="button">Отправить</button> */}
+                  <SendTg />
                 </div>
               </form>
             </div>
