@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# tg
+/src/save.pnp
+/src/components/SendTg/SendTg.tsx
+/public

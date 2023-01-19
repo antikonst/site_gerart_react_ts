@@ -1,5 +1,5 @@
 import Telegram from "miku-web-app"
-import { Button } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 
 export const SendTg = () => {
   
@@ -22,7 +22,8 @@ export const SendTg = () => {
 
   const sendtg = () => {
     alert(' Отправка сообщения: '+ text_to_message +' @GerArtBot')
-    const photo = 'http://rolline.ru/img/newimage' + datenow + '.png'
+    //const photo = 'http://rolline.ru/img/newimage' + datenow + '.png'
+    const photo = 'http://react.gerart.spb.ru/static/media/auto.f043e744dd281cf2fa71.jpg'
     const token = "2014855978:AAHAhsOzobqHZxHsmvnc4e4hFsSahRKJS00";
     const chat_id = -686182842; //сайт GerArt
     const chat_id_user = +tguserid
@@ -42,10 +43,12 @@ export const SendTg = () => {
   }
 
 return (
-  <Button 
+    <Button 
   className="btn btn-primary"
   onClick={sendtg}
-  >Отправить</Button>
+  >
+    Отправить
+  </Button>
 )
 
 }

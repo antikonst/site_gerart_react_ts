@@ -48,7 +48,7 @@ export const Footer = () => {
             </div>
 
             <div className="col-md-5 offset-md-1 mb-3">
-              <form>
+              <form action="./send.php">
                 <h5>Форма обратной связи</h5>
                 <p>Отправьте нам Ваш контакт и мы свяжемся с Вами в ближайшее время!</p>
                 <div className="d-flex flex-column flex-sm-row w-100 gap-2">
