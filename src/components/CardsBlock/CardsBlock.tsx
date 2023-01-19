@@ -175,8 +175,10 @@ export const CardsBlock = () => {
         h2={"Рольставни."}
         h2_muted={'Защита и комфорт'}
         text={<>
-        {texts[4]}
-        {modal_roll_img}
+          {texts[4]}
+          <div className='mb-2'></div>
+          {modal_roll_img}
+          <div className='mb-2'></div>
         </>}
         src={require('./card_images/rolleta.jpg')}
         right={false} />
@@ -201,7 +203,11 @@ export const CardsBlock = () => {
       <Cards
         h2={"Расчёт роллет."}
         h2_muted={'Здесь и сейчас'}
-        text={<CalcRollet test={{ some: '' }} />}
+        text={<>
+          {texts[7]}
+          <CalcRollet test={{ some: '' }} />
+          <div className='mb-2'></div>
+        </>}
         src={require('./card_images/rolleta.jpg')}
         right={true} />
     </div>,
@@ -210,8 +216,10 @@ export const CardsBlock = () => {
         h2={"Секционные ворота."}
         h2_muted={'Идеи для дома'}
         text={<>
-        {texts[8]}
-        {modal_section_vorota_img}
+          {texts[8]}
+          <div className='mb-2'></div>
+          {modal_section_vorota_img}
+          <div className='mb-2'></div>
         </>}
         src={require('./card_images/section_vorota.jpg')}
         right={false} />

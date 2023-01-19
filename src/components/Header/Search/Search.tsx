@@ -1,5 +1,5 @@
-import { Key, useContext, useState } from "react"
-import { Button, Container, Form, InputGroup } from "react-bootstrap"
+import { Key, useContext, useEffect, useState } from "react"
+import { Accordion, Button, Container, Form, InputGroup } from "react-bootstrap"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Context } from "../../../context"
 import { links } from "../../../links"
@@ -12,47 +12,40 @@ export const Search = () => {
 
   const [inputText, setInputText] = useState('')
   const [inputLength, setInputLength] = useState(0)
+  const [activkey, setActivkey] =useState('1')
 
-  //const text_ssilki = `"<a href='${links[0]}'>${inputText}</a>"`
-  //const a_text: any = text_ssilki.split('')
-  
+  useEffect(() => {
+    inputLength > 3 && search_in_texts()
+  }, [inputLength, activkey])
+
   let massiv = texts
-  
+
   const search_in_texts = () => {
-    //const regText = new RegExp(inputText, "g")
-    
-    const text_ssilki = <a href={links[0]}>{inputText}</a>
-    const neo = massiv.map((item: string, index: number) => ((item.search(inputText) > 0) ? (
-      //item.split('').slice(0, item.search(inputText)).concat(text_ssilki).concat(item.split('').slice(item.search(inputText) + inputLength)).join('')
-      <p key={index}>
+    const neo = massiv.map((item: string, index: number) => ((item.toLowerCase().search(inputText) >= 0) ? (
+      <div key={index}>
         <h3><a href={links[index]}>{oglavlenie_menu[index]}</a></h3>
-         ...{item.split('').slice(((item.search(inputText) -20) <20) ? 0 : (item.search(inputText) -20), item.search(inputText))}   
-         <a href={links[index]}>{inputText}</a>   
-         {item.split('').slice(item.search(inputText) + inputLength, item.search(inputText) + inputLength + 20)}... </p>
-    ) : ''))
-    //let result = [neo[1], neo]
-    // neo.map((item, index) => (
-    //   <Container key={index}>{item}</Container>
-    // ))
-    setSearchBlock(neo)
+        <p>
+          ...{item.split('').slice((item.search(inputText) < 20) ? item.search(inputText) : (item.search(inputText) - 20), item.search(inputText))}
+          <a href={links[index]}>{inputText}</a>
+          {item.split('').slice(item.search(inputText) + inputLength, item.search(inputText) + inputLength + 20)}... </p>
+      </div>
+    ) : <></>))
+    setSearchBlock(
+      <Accordion defaultActiveKey='5'>
+        <Accordion.Item eventKey={activkey}>
+          <Accordion.Body>{neo}</Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+    )
     takeHasMore(false)
+    setTimeout(()=>setActivkey('5'), 300)
     //console.log(neo)
   }
 
   const w = (event: any) => {
     let e = event.target.value
-    setInputText(e)
+    setInputText(e.toLowerCase())
     setInputLength(e.length)
-    //massiv = texts.map((item, index) => ((item.search(inputText) > 0) ? (
-    // item.match(inputText)?.input + ' ' + 
-    // item.match(inputText)?.index + ' ' + 
-    // index + ' ' + item.search(inputText)
-    //item.match(inputText)?.input?.replaceAll(inputText, `<a href=${links[index]}>${inputText}</a>`)
-    //) : ''))
-    //setSearchBlock(massiv)
-
-    //console.log(massiv)
-    //console.log(searchBlock)
   }
 
   return (
@@ -68,7 +61,13 @@ export const Search = () => {
           type="text"
           placeholder="Поиск по сайту..."
           onInput={w}
-          onChange={w} />
+          onChange={w}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              search_in_texts()
+            }
+          }}
+        />
       </InputGroup>
     </>
   )

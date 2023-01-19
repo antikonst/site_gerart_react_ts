@@ -12,7 +12,7 @@ interface Props {
 
 export const TopMenu: FC<Props> = ({ onChange }) => {
 
-  const { takeNum, takeHasMore, setAccordionClickOpen } = useContext<any>(Context)
+  const { takeNum, takeHasMore, setAccordionClickOpen, searchBlock } = useContext<any>(Context)
 
   const ham = document.getElementById('hamburger')
 
@@ -28,6 +28,7 @@ export const TopMenu: FC<Props> = ({ onChange }) => {
         </Row>
       </Button>
       <Search />
+      {searchBlock}
       {elem(0, false, oglavlenie_menu[0])}
       {elem(1, false, oglavlenie_menu[1])}
       {elem(2, false, oglavlenie_menu[2])}

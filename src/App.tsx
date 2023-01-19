@@ -18,7 +18,7 @@ function App() {
   // const [windowHeight, setWindowHeight] = useState(window.innerHeight)
   const [headRolletClick, setHeadRolletClick] = useState(false)
   const [accordionClickOpen, setAccordionClickOpen] = useState(true)
-  const [searchBlock, setSearchBlock]= useState(<>'какие-то слова'</>)
+  const [searchBlock, setSearchBlock]= useState(<></>)
 
   const takeNum = (n: number) => {
     setNumCardBlock(n)
